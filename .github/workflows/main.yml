@@ -35,8 +35,8 @@ jobs:
             ${{ runner.os }}-buildx-
 
       # Runs a single command using the runners shell
-      - name: build php image
-        run: docker-compose build php
+      - name: build nginx image
+        run: docker-compose build nginx
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
