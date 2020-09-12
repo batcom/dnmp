@@ -45,8 +45,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       -
         name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: batcom/dnmp:latest
-          file: services/nginx/Dockerfile
+        run: |
+          docker login --username=batcom --password=${{ secrets.DOCKER_PASSWORD }}
+          docker tag nginx:lastest batcom/dnmp
+          docker push batcom/dnmp
+
