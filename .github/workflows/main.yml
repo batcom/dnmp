@@ -36,7 +36,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: build nginx image
-        run: docker-compose build nginx
+        run: docker-compose build nginx php
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -47,6 +47,8 @@ jobs:
         name: Build and push
         run: |
           docker login --username=batcom --password=${{ secrets.DOCKER_PASSWORD }}
-          docker tag dnmp_nginx:latest batcom/dnmp
-          docker push batcom/dnmp
+          docker tag dnmp_nginx:latest batcom/dnmp_nginx
+          docker tag dnmp_php:latest batcom/dnmp_php
+          docker push batcom/dnmp_nginx
+          docker push batcom/dnmp_php
 
