@@ -47,6 +47,6 @@ jobs:
         name: Build and push
         run: |
           docker login --username=batcom --password=${{ secrets.DOCKER_PASSWORD }}
-          docker tag nginx:lastest batcom/dnmp
+          docker tag dnmp_nginx:latest batcom/dnmp
           docker push batcom/dnmp
 
