@@ -49,3 +49,4 @@ jobs:
         with:
           push: true
           tags: batcom/dnmp:latest
+          file: services/nginx/Dockerfile
