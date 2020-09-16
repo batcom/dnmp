@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         php_version: ["7.1.33", "7.2.33", "7.3.22", "7.4.10"]
-        service: [php, nginx , mysql]
+        service: [php]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -55,6 +55,5 @@ jobs:
           docker login --username=batcom --password=${{ secrets.DOCKER_PASSWORD }}
           docker tag dnmp_nginx:latest batcom/dnmp_nginx
           docker tag dnmp_php:${{ matrix.php_version }} batcom/dnmp_php:${{ matrix.php_version }}
-          docker push batcom/dnmp_nginx
           docker push batcom/dnmp_php:${{ matrix.php_version }}
 
