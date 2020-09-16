@@ -53,6 +53,6 @@ jobs:
         name: Build and push
         run: |
           docker login --username=batcom --password=${{ secrets.DOCKER_PASSWORD }}
-          docker tag dnmp_php:${{ matrix.php_version }} batcom/dnmp_php:${{ matrix.php_version }}
+          docker tag dnmp_php:lastest batcom/dnmp_php:${{ matrix.php_version }}
           docker push batcom/dnmp_php:${{ matrix.php_version }}
 
